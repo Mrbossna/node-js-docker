@@ -1,6 +1,11 @@
 version: '3'
 services:
-  my-node-app:
-    build: .
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "8080:8080"  # เปลี่ยน port ตามความเหมาะสม
+    volumes:
+      - .:/app
+    command: npm start
